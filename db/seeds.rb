@@ -133,10 +133,10 @@ ps4 = Partyslot.create(char1: char1.id, char2: char2.id, char3: char3.id)
 
 puts "creating battles"
 
-b1 = Battle.create(battle_note: "Testbattle1", partyslot_id: ps1.id,  user_id: u1.id)
-b2 = Battle.create(battle_note: "Testbattle2", partyslot_id: ps3.id,  user_id: u1.id)
-b3 = Battle.create(battle_note: "Testbattle3", partyslot_id: ps2.id,   user_id: u2.id)
-b4 = Battle.create(battle_note: "Testbattle4", partyslot_id: ps4.id,  user_id: u2.id)
+b1 = Battle.create(battle_note: "Testbattle1", victory: true, partyslot_id: ps1.id,  user_id: u1.id)
+b2 = Battle.create(battle_note: "Testbattle2", victory: false, partyslot_id: ps3.id,  user_id: u1.id)
+b3 = Battle.create(battle_note: "Testbattle3", victory: false, partyslot_id: ps2.id,   user_id: u2.id)
+b4 = Battle.create(battle_note: "Testbattle4", victory: true, partyslot_id: ps4.id,  user_id: u2.id)
 
 
 puts "Done"
