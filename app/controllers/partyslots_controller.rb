@@ -1,0 +1,2 @@
+class PartyslotsController < ApplicationController
+end

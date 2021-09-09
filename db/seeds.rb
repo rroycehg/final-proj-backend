@@ -116,4 +116,27 @@ char28 = Character.create(name: "Seymour Guado", game: "Final Fantasy X", image1
 char29 = Character.create(name: "Lulu", game: "Final Fantasy X", image1: "https://static.wikia.nocookie.net/finalfantasy/images/5/5b/FFX_Lulu_Art.png", image2: "https://i.pinimg.com/originals/e6/dc/30/e6dc302da99a291f42a2b29cc9c3994f.png",  hp: rand(200..300), dmg: rand(70..120), role_id: r1.id, classtype_id: c17.id)
 
 
+
+
+puts "creating users"
+
+u1 = User.create(username: "roli", password: "flatiron099", password_confirmation: "flatiron099")
+u2 = User.create(username: "Bob", password: "bobbylee", password_confirmation: "bobbylee")
+
+
+puts "creating partySlots"
+
+ps1 = Partyslot.create(char1: char23.id, char2: char22.id, char3: char8.id)
+ps2 = Partyslot.create(char1: char29.id, char2: char5.id, char3: char3.id)
+ps3 = Partyslot.create(char1: char15.id, char2: char7.id, char3: char9.id)
+ps4 = Partyslot.create(char1: char1.id, char2: char2.id, char3: char3.id)
+
+puts "creating battles"
+
+b1 = Battle.create(battle_note: "Testbattle1", partyslot_id: ps1.id,  user_id: u1.id)
+b2 = Battle.create(battle_note: "Testbattle2", partyslot_id: ps3.id,  user_id: u1.id)
+b3 = Battle.create(battle_note: "Testbattle3", partyslot_id: ps2.id,   user_id: u2.id)
+b4 = Battle.create(battle_note: "Testbattle4", partyslot_id: ps4.id,  user_id: u2.id)
+
+
 puts "Done"

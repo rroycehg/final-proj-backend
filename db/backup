@@ -1,0 +1,16 @@
+puts "creating battles"
+
+b1 = Battle.create(partyslot1_id: ps1.id, partyslot2_id: ps2.id, user_id: u1.id)
+b2 = Battle.create(partyslot1_id: ps3.id, partyslot2_id: ps4.id,  user_id: u1.id)
+b3 = Battle.create(partyslot1_id: ps2.id, partyslot2_id: ps3.id,  user_id: u2.id)
+b4 = Battle.create(partyslot1_id: ps1.id, partyslot2_id: ps4.id,  user_id: u2.id)
+
+
+puts "creating partySlots"
+
+ps1 = Partyslot.create(char1: char23.id, char2: char22.id, char3: char8.id, user_id: u1.id, battle_id: b1.id )
+ps2 = Partyslot.create(char1: char29.id, char2: char5.id, char3: char3.id, user_id: u1.id, battle_id: b1.id)
+ps3 = Partyslot.create(char1: char15.id, char2: char7.id, char3: char9.id, user_id: u2.id, battle_id: b2.id )
+ps4 = Partyslot.create(char1: char1.id, char2: char2.id, char3: char3.id, user_id: u2.id, battle_id: b2.id )
+
+puts "Done"

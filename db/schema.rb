@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_05_165557) do
+ActiveRecord::Schema.define(version: 2021_09_08_154123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "battles", force: :cascade do |t|
+    t.string "battle_note"
+    t.bigint "partyslot_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["partyslot_id"], name: "index_battles_on_partyslot_id"
+    t.index ["user_id"], name: "index_battles_on_user_id"
+  end
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -36,12 +46,29 @@ ActiveRecord::Schema.define(version: 2021_09_05_165557) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "partyslots", force: :cascade do |t|
+    t.integer "char1"
+    t.integer "char2"
+    t.integer "char3"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "role_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "battles", "partyslots"
+  add_foreign_key "battles", "users"
   add_foreign_key "characters", "classtypes"
   add_foreign_key "characters", "roles"
 end
